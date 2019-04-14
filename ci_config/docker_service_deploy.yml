@@ -1,0 +1,19 @@
+version: '3.2'
+
+services:
+  app:
+    build: /flask_srv/.
+    # build from Dockerfile
+    context: ./Path
+    dockerfile: Dockerfile
+    ports:
+     - "8081:8081
+  mongodb:
+    build: /mongo_srv/.
+    context: ./Path
+    dockerfile: Dockerfile
+    ports: 
+      - '27017:27017'
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME: 'superMongoUser'
+      - MONGO_INITDB_ROOT_PASSWORD: 'ChangeMePlease'
